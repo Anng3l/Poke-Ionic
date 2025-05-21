@@ -1,20 +1,67 @@
-<ion-header [translucent]="true">
+<!--
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Pokédex</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+
+
+<div class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let pokemon of pokemons; let i = index">
+        <ion-card>
+          <img [src]="getImageUrl(i)" alt="{{ pokemon.name }}" />
+          <ion-card-header>
+            <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="loadPokemons($event)" threshold="100px">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Cargando más Pokémon...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div>
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pokédex</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="ion-padding">
+  <ion-card>
+    <ion-input
+    [(ngModel)]="pokemonName"
+    placeholder="Ingrese el nombre del pokémon buscado"
+    type="text"
+    size="large">
+    </ion-input>
+    <ion-button (click)="getPokemonData(pokemonName)">
+
+    </ion-button>
+    
+    <h2>{{ pokemonData.name | titlecase }}</h2>
+    <img [src]="pokemonData.sprites.front_default" alt="Sprite del Pokémon" />
+
+    <p><strong>Altura:</strong> {{ pokemonData.height }}</p>
+    <p><strong>Peso:</strong> {{ pokemonData.weight }}</p>
+
+    <p><strong>Tipo(s):</strong></p>
+    <ul>
+      <li *ngFor="let tipo of pokemonData.types">
+        {{ tipo.type.name }}
+      </li>
+    </ul>
+
+  </ion-card>
+      
+</div>
