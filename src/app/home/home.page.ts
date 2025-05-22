@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonContent, CommonModule, IonicModule, FormsModule],
+  imports: [CommonModule, IonicModule, FormsModule],
 })
 
 export class HomePage implements OnInit {

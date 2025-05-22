@@ -1,27 +1,44 @@
-#container {
+.busqueda-container {
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+}
+
+.pokemon-detalle {
   text-align: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  background-color: #f8f8f8;
+
+  display: block;
+  width: 200px;
+  margin: auto;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.pokemon-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.pokemon-card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  text-align: center;
+  padding: 12px;
 }
 
-#container a {
-  text-decoration: none;
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: auto;
+}
+
+.gridPokemon {
+  display: block;
+  width: 90vw;              // ocupa el 90% del ancho de la pantalla
+  max-width: 600px;         // nunca más ancho que esto
+  
 }
